@@ -1,3 +1,5 @@
+import "./campo-de-formulario.estilos.css";
+
 export const CampoDeFormulario = ({ children }) => {
-  return <fieldset>{children}</fieldset>;
+  return <fieldset className="campo-form">{children}</fieldset>;
 };
