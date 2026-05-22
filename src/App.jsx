@@ -1,6 +1,18 @@
 import "./App.css";
 
-function App() {
+const FormularioDeEvento = () => {
+  return (
+    <form className="form-evento">
+      <h2>Preencha para criar um evento:</h2>
+      <fieldset>
+        <label htmlFor="nome">Qual o nome do evento?</label>
+        <input type="text" id="nome" />
+      </fieldset>
+    </form>
+  );
+};
+
+const App = () => {
   return (
     <main>
       <header>
@@ -9,8 +21,9 @@ function App() {
       <section>
         <img src="/banner.png" alt="" />
       </section>
+      <FormularioDeEvento />
     </main>
   );
-}
+};
 
 export default App;
