@@ -53,14 +53,18 @@ const App = () => {
       </header>
       <Banner />
       <FormularioDeEvento temas={temas} aoSubmeter={adicionarEvento} />
-      {temas.map((tema, index) => (
-        <section key={tema.id}>
-          <Tema tema={tema} />
-          {eventos.map((evento, index) => (
-            <CardEvento key={index} evento={evento} />
-          ))}
-        </section>
-      ))}
+      <section className="container">
+        {temas.map((tema, index) => (
+          <section key={tema.id}>
+            <Tema tema={tema} />
+            <div className="eventos">
+              {eventos.map((evento, index) => (
+                <CardEvento key={index} evento={evento} />
+              ))}
+            </div>
+          </section>
+        ))}
+      </section>
     </main>
   );
 };
