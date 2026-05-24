@@ -7,8 +7,17 @@ import { ListaSuspensa } from "../ListaSuspensa";
 import { Botao } from "../Botao";
 
 export const FormularioDeEvento = ({ temas }) => {
+  const handleSubmit = (formData) => {
+    const evento = {
+      capa: formData.get("capa"),
+      tema: temas.find((tema) => tema.id === Number(formData.get("tema"))),
+      data: new Date(formData.get("dataEvento")),
+      titulo: formData.get("nome"),
+    };
+  };
+
   return (
-    <form className="form-evento">
+    <form className="form-evento" action={handleSubmit}>
       <TituloFormulario>Preencha para criar um evento:</TituloFormulario>
       <div className="campos">
         <CampoDeFormulario>
