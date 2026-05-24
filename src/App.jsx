@@ -47,7 +47,7 @@ const App = () => {
         <img src="/logo.png" alt="" />
       </header>
       <Banner />
-      <FormularioDeEvento />
+      <FormularioDeEvento temas={temas} />
       {temas.map((tema, index) => (
         <section key={tema.id}>
           <Tema tema={tema} />

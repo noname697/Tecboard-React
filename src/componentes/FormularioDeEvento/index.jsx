@@ -6,11 +6,10 @@ import { CampoDeEntrada } from "../CampoDeEntrada";
 import { ListaSuspensa } from "../ListaSuspensa";
 import { Botao } from "../Botao";
 
-export const FormularioDeEvento = () => {
+export const FormularioDeEvento = ({ temas }) => {
   return (
     <form className="form-evento">
       <TituloFormulario>Preencha para criar um evento:</TituloFormulario>
-
       <div className="campos">
         <CampoDeFormulario>
           <Label htmlFor="nome">Qual o nome do evento?</Label>
@@ -18,7 +17,16 @@ export const FormularioDeEvento = () => {
             type="text"
             id="nome"
             placeholder="Summer dev hits"
-            name="nomeEvento"
+            name="nome"
+          />
+        </CampoDeFormulario>
+        <CampoDeFormulario>
+          <Label htmlFor="capa">Qual o endereço da imagem de capa?</Label>
+          <CampoDeEntrada
+            type="text"
+            id="capa"
+            placeholder="https://..."
+            name="capa"
           />
         </CampoDeFormulario>
         <CampoDeFormulario>
@@ -26,8 +34,8 @@ export const FormularioDeEvento = () => {
           <CampoDeEntrada type="date" id="dataEvento" name="dataEvento" />
         </CampoDeFormulario>
         <CampoDeFormulario>
-          <Label htmlFor="temaEvento">Tema do evento</Label>
-          <ListaSuspensa id="temaEvento" name="temaEvento" />
+          <Label htmlFor="tema">Tema do evento</Label>
+          <ListaSuspensa id="tema" name="tema" itens={temas} />
         </CampoDeFormulario>
         <div className="acoes">
           <Botao>Criar Evento</Botao>
