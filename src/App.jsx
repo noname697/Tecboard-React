@@ -1,5 +1,6 @@
 import "./App.css";
 import { Banner } from "./componentes/Banner";
+import { CardEvento } from "./componentes/CardEvento";
 import { FormularioDeEvento } from "./componentes/FormularioDeEvento";
 import { Tema } from "./componentes/Tema";
 
@@ -31,6 +32,15 @@ const App = () => {
     },
   ];
 
+  const eventos = [
+    {
+      capa: "https://raw.githubusercontent.com/viniciosneves/tecboard-assets/refs/heads/main/imagem_1.png",
+      tema: temas[0],
+      data: new Date(),
+      titulo: "Mulheres no Front",
+    },
+  ];
+
   return (
     <main>
       <header>
@@ -38,14 +48,12 @@ const App = () => {
       </header>
       <Banner />
       <FormularioDeEvento />
-      <section>
-        <Tema tema={temas[0]} />
-        <Tema tema={temas[1]} />
-        <Tema tema={temas[2]} />
-        <Tema tema={temas[3]} />
-        <Tema tema={temas[4]} />
-        <Tema tema={temas[5]} />
-      </section>
+      {temas.map((tema, index) => (
+        <section key={tema.id}>
+          <Tema tema={tema} />
+          <CardEvento evento={eventos[0]} />
+        </section>
+      ))}
     </main>
   );
 };
