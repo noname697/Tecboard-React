@@ -54,16 +54,23 @@ const App = () => {
       <Banner />
       <FormularioDeEvento temas={temas} aoSubmeter={adicionarEvento} />
       <section className="container">
-        {temas.map((tema, index) => (
-          <section key={tema.id}>
-            <Tema tema={tema} />
-            <div className="eventos">
-              {eventos.map((evento, index) => (
-                <CardEvento key={index} evento={evento} />
-              ))}
-            </div>
-          </section>
-        ))}
+        {temas.map((tema) => {
+          if (!eventos.some((evento) => evento.tema.id === tema.id)) {
+            return null;
+          }
+          return (
+            <section key={tema.id}>
+              <Tema tema={tema} />
+              <div className="eventos">
+                {eventos
+                  .filter((evento) => evento.tema.id === tema.id)
+                  .map((evento, index) => (
+                    <CardEvento key={index} evento={evento} />
+                  ))}
+              </div>
+            </section>
+          );
+        })}
       </section>
     </main>
   );
